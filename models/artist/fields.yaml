@@ -1,0 +1,71 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Artist Name
+        searchable: true
+        span: left
+
+    slug:
+        label: Artist Slug
+        span: right
+        preset:
+            field: name
+            type: slug
+    type:
+        label: Artist Type
+        searchable: true
+        span: left
+
+    discipline:
+        label: Artist Discipline
+        palceholder: Artist disipline ( ex Rap, House )
+        searchable: true
+        span: right
+    phone:
+        label: Artist Phone
+        searchable: true
+        span: left
+    email:
+        label: Artist Email
+        searchable: true
+        span: right
+    website:
+        label: Artist Website
+        searchable: true
+    instagram:
+        label: Artist Instagram
+        searchable: true
+        span: left
+    facebook:
+        label: Artist Facebook
+        searchable: true
+        span: right
+    soundcloud:
+        label: Artist Soundcloud
+        searchable: true
+        span: left
+
+    date_when_played:
+        label: The day when artist played
+        type: datepicker
+        mode: date
+        span: right
+
+    current:
+        label: Is Futured ?
+        type: checkbox
+        default: false
+
+    description:
+        label: Description
+        searchable: true
+        type: richeditor
+        size: huge
+
+    photos:
+        label: Photos
+        searchable: true
+        type: fileupload

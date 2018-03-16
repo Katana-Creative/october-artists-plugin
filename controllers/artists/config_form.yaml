@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Artist
+
+# Model Form Field configuration
+form: $/katana/artists/models/artist/fields.yaml
+
+# Model Class name
+modelClass: Katana\Artists\Models\Artist
+
+# Default redirect location
+defaultRedirect: katana/artists/artists
+
+# Create page
+create:
+    title: Create Artist
+    redirect: katana/artists/artists/update/:id
+    redirectClose: katana/artists/artists
+
+# Update page
+update:
+    title: Edit Artist
+    redirect: katana/artists/artists
+    redirectClose: katana/artists/artists
+
+# Preview page
+preview:
+    title: Preview Artist

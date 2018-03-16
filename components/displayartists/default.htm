@@ -1,0 +1,97 @@
+<!-- curent artist !-->
+
+{% if this.page.id == 'artist-residency' %}
+
+    {% if CurrentArtist | length > 0 %}
+    <div class="row room-home-section">
+        <div class="col-sm-8 room-home-image current-artist-img">
+            <img src="{{ CurrentArtist.photos[0].thumb(640,640) }}" alt="">
+        </div>
+        <div class="col-sm-4 room-home-text">
+            <h3 class="red-text text-uppercase">Current Artist</h3>
+            <h4 class="text-uppercase">
+              {{ CurrentArtist.name }}
+            </h4>
+            <p>
+                <!-- {{ CurrentArtist.description  | raw }} -->
+                {% component 'editable' file="artist-residency/current-artist-content.htm" %}
+            </p>
+            <a href="{{ url('artist-residency')}}/{{ CurrentArtist.slug }}" target="_blank" class="red-text text-uppercase room-link">Find out more</a>
+        </div>
+    </div>
+    {% endif %}
+
+{% endif %}
+
+{% if FutureArtists | length > 0 %}
+
+
+<div class="row artists">
+    <div class="artists-header text-center">
+        <h3 class="text-uppercase red-text">
+            Future Artists
+        </h3>
+    </div>
+</div>
+
+
+
+<div class="row artists-links">
+    <div class="row six-img-grid rooms-grid">
+        {% for artist in FutureArtists %}
+        <!-- foreach start !-->
+        <div class="col-sm-4 img-block">
+            <a href="{{ url('artist-residency') }}/{{ artist.slug }}" title="{{ artist.name }} comes to vagabond hotel" class="one-buiding-pic">
+
+                <img src="{{ artist.photos[0].thumb(340, 340,'crop') }}" />
+
+                <h3 title="{{ artist.name }}" class="text-uppercase room-link-text">
+                    {{ artist.name }}
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endif %}
+
+
+
+
+{% if PastArtists | length > 0 %}
+
+
+    <div class="row artists">
+        <div class="artists-header text-center">
+            <h3 class="text-uppercase red-text">
+                Past Artists
+            </h3>
+        </div>
+    </div>
+
+
+
+    <div class="row artists-links">
+        <div class="row six-img-grid rooms-grid">
+            {% for artist in PastArtists %}
+                <!-- foreach start !-->
+                <div class="col-sm-4 img-block">
+                    <a href="{{ url('artist-residency') }}/{{ artist.slug }}" title="{{ artist.name }} comes to vagabond hotel" class="one-buiding-pic">
+
+                        <img src="{{ artist.photos[0].thumb(340, 340,'crop') }}" />
+
+                        <h3 title="{{ artist.name }}" class="text-uppercase room-link-text">
+                            {{ artist.name }}
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </h3>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endif %}

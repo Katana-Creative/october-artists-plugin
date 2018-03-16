@@ -1,0 +1,73 @@
+<!--
+<div class="header-carousel" style="background-image: url({{ artist.photos[0].thumb(1200,600) }})">
+
+
+
+
+</div> -->
+
+<div class="container-fluid page-intro artist-inside">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="text-uppercase red-text artist-name">
+                    {{ artist.name }}
+                </h2>
+                <h3 class="text-uppercase artist-profession">
+                    {{ artist.type }}
+                </h3>
+                {{ artist.description  | raw }}
+                <div class="back-btn">
+                    <a href="{{ url('artist-residency') }}" class="red-text text-uppercase">
+                        <i class="fa fa-chevron-left red-text"></i>
+                        Back to artist residency
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 col-sm-offset-1 artist-resident-details">
+                {% if artist.discipline | length > 0 %}
+                <p class="text-uppercase">Discipline</p>
+                <p class="red-text">
+                    {{ artist.discipline }}
+                </p>
+                <br>
+                {% endif %}
+                {% if artist.email | length > 0 %}
+                <p class="text-uppercase">Contact</p>
+                <p class="red-text">{{ artist.email }}</p>
+                <br>
+                {% endif %}
+
+                {% if artist.instagram | length > 0 %}
+                <p class="red-text text-uppercase">
+                    <a href="{{ artist.instagram }}" class="red-text text-uppercase">
+                        Instagram
+                    </a>
+                </p>
+                {% endif %}
+
+                {% if artist.facebook | length > 0 %}
+                    <a href="{{ artist.facebook }}" class="red-text text-uppercase">
+                        Facebook
+                    </a>
+                {% endif %}
+
+                {% if artist.soundcloud | length > 0 %}
+                    <a href="{{ artist.soundcloud }}" class="red-text text-uppercase">
+                        Soundcloud
+                    </a>
+
+                {% endif %}
+
+
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container-fluid artist-residency-section">
+        {% component 'DisplayArtists' %}
+    </div>
+
+</div>
